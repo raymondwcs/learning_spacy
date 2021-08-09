@@ -1,1 +1,1 @@
-# learning_spacy
+# Learning spaCy
