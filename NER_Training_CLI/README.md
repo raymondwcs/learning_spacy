@@ -7,7 +7,7 @@ Convert `train_data.jsonl` and `eval_data.jsonl` to [DocBin](https://spacy.io/ap
 python ./convert.py
 ```
 
-2. Start training via cli.  To use GPU, change `--gpu-id -1` to `--gpu-id 0`
+2. Start training via [cli](https://spacy.io/api/cli#train).  To use GPU, change `--gpu-id -1` to `--gpu-id 0`
 
 ```
 python -m spacy train config.cfg --output ./output --paths.train ./train.spacy --paths.dev ./eval.spacy --gpu-id -1
