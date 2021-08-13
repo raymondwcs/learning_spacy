@@ -19,10 +19,10 @@ nlp = spacy.load(spacy_model) # load a new spacy model
 db = DocBin() # create a DocBin object
 
 for line in tqdm(TRAIN_DATA): # data in previous format
-    # print(type(line),line['text'],line['labels'])
+    # print(type(line),line['text'],line['label'])
     doc = nlp.make_doc(line['text']) # create doc object from text
     ents = []
-    for start, end, label in line["labels"]: # add character indexes
+    for start, end, label in line["label"]: # add character indexes
         span = doc.char_span(start, end, label=label, alignment_mode="contract")
         if span is None:
             print("Skipping entity")
@@ -43,10 +43,10 @@ with open('eval_data.jsonl') as f:
 db = DocBin() # create a DocBin object
 
 for line in tqdm(EVAL_DATA): # data in previous format
-    # print(type(line),line['text'],line['labels'])
+    # print(type(line),line['text'],line['label'])
     doc = nlp.make_doc(line['text']) # create doc object from text
     ents = []
-    for start, end, label in line["labels"]: # add character indexes
+    for start, end, label in line["label"]: # add character indexes
         span = doc.char_span(start, end, label=label, alignment_mode="contract")
         if span is None:
             print("Skipping entity")
