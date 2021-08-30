@@ -1,7 +1,7 @@
 # Train `pkuseg` on Traditional Chinese Text
 This project demonstrates how to train [`pkuseg`](https://github.com/explosion/spacy-pkuseg) on dataset published by [ICWB2](https://github.com/yuikns/icwb2-data)
 
-## Training and Test datasets
+## Training and Testing datasets
 1. [`cityu_training.utf8`](cityu_training.utf8)
 2. [`cityu_test_gold.utf8`](cityu_test_gold.utf8)
 
