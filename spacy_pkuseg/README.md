@@ -8,9 +8,9 @@ The following datasets were published by [ICWB2](https://github.com/yuikns/icwb2
 2. [`cityu_test_gold.utf8`](cityu_test_gold.utf8)
 
 ## Training
-1. `pip install [`spacy-pkuseg`](https://github.com/explosion/spacy-pkuseg)`
-2. `python [`train.py`](train.py)`
-3. Trained model is saved in folder [`models`](./models)
+1. `pip install spacy-pkuseg`
+2. `python train.py`
+3. Trained model is saved in folder `models`
 
 ## Using the trained model with spacy
 ```
