@@ -12,7 +12,7 @@ The following datasets were published by [ICWB2](https://github.com/yuikns/icwb2
 2. `python [`train.py`](train.py)`
 3. Trained model is saved in folder [`models`](./models)
 
-## Using the trained model in spacy
+## Using the trained model with spacy
 ```
 import spacy
 MODEL = 'zh_core_web_lg'
