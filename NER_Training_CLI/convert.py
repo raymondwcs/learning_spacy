@@ -4,18 +4,21 @@ import json
 from spacy.tokens import DocBin
 
 spacy_model = 'zh_core_web_lg'
-
-TRAIN_DATA = []
-with open('train_data.jsonl') as f:
-    for jsonObj in f:
-        x = json.loads(jsonObj)
-        TRAIN_DATA.append(x)
+train_file = 'train_data.jsonl'
+eval_file = 'eval_data.jsonl'
 
 nlp = spacy.load(spacy_model) # load a new spacy model
-db = DocBin() # create a DocBin object
 
+TRAIN_DATA = []
+with open(train_file) as f:
+    for line in f:
+        jsonObj = json.loads(line)
+        TRAIN_DATA.append(jsonObj)
+
+print('read from {}, {} lines'.format(train_file,len(TRAIN_DATA)))
+
+db = DocBin() # create a DocBin object
 for line in tqdm(TRAIN_DATA): # data in previous format
-    # print(type(line),line['text'],line['entities'])
     doc = nlp.make_doc(line['text']) # create doc object from text
     ents = []
     for start, end, entities in line["entities"]: # add character indexes
@@ -31,15 +34,16 @@ db.to_disk("./train.spacy") # save the docbin object
 
 
 EVAL_DATA = []
-with open('eval_data.jsonl') as f:
-    for jsonObj in f:
-        x = json.loads(jsonObj)
-        EVAL_DATA.append(x)
+with open(eval_file) as f:
+    for line in f:
+        jsonObj = json.loads(line)
+        EVAL_DATA.append(jsonObj)
+
+print('read from {}, {} lines'.format(eval_file,len(EVAL_DATA)))
+
 
 db = DocBin() # create a DocBin object
-
 for line in tqdm(EVAL_DATA): # data in previous format
-    # print(type(line),line['text'],line['entities'])
     doc = nlp.make_doc(line['text']) # create doc object from text
     ents = []
     for start, end, entities in line["entities"]: # add character indexes
